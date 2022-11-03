@@ -26,6 +26,7 @@ def rename_file(infile, outfolder):
 
     if os.path.exists(outfolder)==False:
         cmd = 'mkdir '+outfolder
+        print(cmd)
         subprocess.call(cmd.split(' '), shell=True)
 
     for f1, f2 in infile:
