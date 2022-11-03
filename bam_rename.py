@@ -33,7 +33,8 @@ def rename_file(infile, outfolder):
         outname = outfolder+'/'+f2+f1
         outname = outname.replace(' ','_')
         cmd = 'touch '+outname
-        subprocess.call(cmd.split(' ',''), shell=True)
+        print(cmd)
+        subprocess.call(cmd.split(' '), shell=True)
 
 def main():
     parser = argparse.ArgumentParser(description='Script to rename bam files based on sample name', formatter_class=argparse.RawTextHelpFormatter)
