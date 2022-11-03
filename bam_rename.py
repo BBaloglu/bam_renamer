@@ -11,6 +11,9 @@ import json
 def get_sample_name(fname):
     with open(fname, 'r') as f:
         data = json.load(f)
+    # list samples
+    data = data['experimentAnalysisSettings']
+    data = data['barcodedSamples']
     print(data)
 
 def main():
