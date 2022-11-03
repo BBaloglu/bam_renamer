@@ -31,7 +31,7 @@ def rename_file(infile, outfolder):
 
     for f1, f2 in infile:
         print('working on', f1, f2)
-        outname = outfolder+'/'+f2+'_'+f1
+        outname = outfolder+'/'+f1+'_'+f2
         outname = outname.replace(' ','_')
         cmd = 'touch '+outname
         print(cmd)
