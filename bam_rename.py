@@ -13,7 +13,7 @@ def get_sample_name(fname):
     data = data['barcodedSamples']
     out = []
     for i in data.keys():
-        x = data['barcodes']
+        x = data[i]['barcodes']
         for j in x:
             out.append([i, j]) 
     print(out)
