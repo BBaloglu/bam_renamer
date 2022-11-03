@@ -27,15 +27,15 @@ def rename_file(infile, outfolder):
     if os.path.exists(outfolder)==False:
         cmd = 'mkdir '+outfolder
         print(cmd)
-        subprocess.call(cmd.split(' '), shell=True)
+        subprocess.call(cmd, shell=True)
 
     for f1, f2 in infile:
         print('working on', f1, f2)
-        outname = outfolder+'/'+f2+f1
+        outname = outfolder+'/'+f2+'_'+f1
         outname = outname.replace(' ','_')
         cmd = 'touch '+outname
         print(cmd)
-        subprocess.call(cmd.split(' '), shell=True)
+        subprocess.call(cmd, shell=True)
 
 def main():
     parser = argparse.ArgumentParser(description='Script to rename bam files based on sample name', formatter_class=argparse.RawTextHelpFormatter)
