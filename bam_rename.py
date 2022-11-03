@@ -1,8 +1,5 @@
 # Bilgenur Baloglu
 # rename names bam files
-\
-import numpy as np
-import pandas as pd
 
 import glob
 import argparse
@@ -14,7 +11,12 @@ def get_sample_name(fname):
     # list samples
     data = data['experimentAnalysisSettings']
     data = data['barcodedSamples']
-    print(data)
+    out = []
+    for i in data.keys():
+        x = data['barcodes']
+        for j in x:
+            out.append([i, j]) 
+    print(out)
 
 def main():
     parser = argparse.ArgumentParser(description='Script to rename bam files based on sample name', formatter_class=argparse.RawTextHelpFormatter)
