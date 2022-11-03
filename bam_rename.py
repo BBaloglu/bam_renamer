@@ -2,8 +2,10 @@
 # rename names bam files
 
 import glob
-import argparse
 import json
+import argparse
+import subprocess
+import os
 
 def get_sample_name(fname):
     with open(fname, 'r') as f:
@@ -16,7 +18,19 @@ def get_sample_name(fname):
         x = data[i]['barcodes']
         for j in x:
             out.append([i, j]) 
-    print(out)
+    return out
+
+def rename_file(infile, outfolder):
+    if os.path.exist(outfolder)==False:
+        cmd = 'mkdir '+outfolder
+        subprocess.call(cmd.split(' '), shell=True)
+
+    for f1, f2 in infile:
+        print('working on', f1, f2)
+        outname = outfolder+'/'+f2+f1
+        outname = outname.replace(' ','_')
+        cmd = 'touch '+outname
+        subprocess.call(cmd.split(' ',''), shell=True)
 
 def main():
     parser = argparse.ArgumentParser(description='Script to rename bam files based on sample name', formatter_class=argparse.RawTextHelpFormatter)
@@ -25,7 +39,7 @@ def main():
 
     args = parser.parse_args()
     print(args)
-    get_sample_name(args.infile)
+    rename_file(args.infile, args.outfile)
 
 if __name__ == "__main__":
     main()
