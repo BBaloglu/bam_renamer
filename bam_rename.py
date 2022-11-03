@@ -6,6 +6,7 @@ import json
 import argparse
 import subprocess
 import os
+import os.path
 
 def get_sample_name(fname):
     with open(fname, 'r') as f:
@@ -21,7 +22,9 @@ def get_sample_name(fname):
     return out
 
 def rename_file(infile, outfolder):
-    if os.path.exist(outfolder)==False:
+    infile = get_sample_name(infile)
+
+    if os.path.exists(outfolder)==False:
         cmd = 'mkdir '+outfolder
         subprocess.call(cmd.split(' '), shell=True)
 
