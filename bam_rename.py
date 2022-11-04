@@ -38,10 +38,11 @@ def rename_file(infolder, outfolder, sample_list):
         print(blist)
         # rename bam file and copy over
         for bfile in blist:
-            ## need to add a few other conditions to address any kind of file naming
             outname = outfolder+'/'+f1+'_'+bfile.split('/')[-1]
-            outname = outname.replace(' ','_')
-            cmd = 'touch '+outname
+            ## need to add a few other conditions to address any kind of file naming
+            if outname.find(" ")!=-1:
+                outname = outname.replace(' ','_')
+                cmd = 'touch '+outname
             print(cmd)
             subprocess.call(cmd, shell=True)
             cmd = 'cp '+bfile+' '+outname
