@@ -32,7 +32,7 @@ def rename_file(infolder, outfolder, sample_list):
     for f1, f2 in sample_list:
         print('working on', f1, f2)
         # get list of bam files
-        blist = glob.glob(infolder+'/'+f2+'*.bam')
+        blist = glob.glob(infolder+'/'+f2+'*.bam*')
         print(blist)
         # rename bam file and copy over
         for bfile in blist:
