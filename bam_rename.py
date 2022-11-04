@@ -42,7 +42,9 @@ def rename_file(infolder, outfolder, sample_list):
             ## need to add a few other conditions to address any kind of file naming
             if outname.find(" ")!=-1:
                 outname = outname.replace(' ','_')
-                cmd = 'touch '+outname
+            else:
+                pass
+            cmd = 'touch '+outname
             print(cmd)
             subprocess.call(cmd, shell=True)
             cmd = 'cp '+bfile+' '+outname
