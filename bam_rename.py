@@ -9,8 +9,10 @@ import argparse
 import subprocess
 import os
 import os.path
+import shutil
 
 def get_sample_name(fname):
+    """extracts sample names from the json file"""
     with open(fname, 'r') as f:
         data = json.load(f)
     # list samples
@@ -24,6 +26,7 @@ def get_sample_name(fname):
     return out
 
 def rename_file(infolder, outfolder, sample_list):
+    """renames files based on the names in the sample list"""
     # make output directory if it does not exist
     if os.path.exists(outfolder)==False:
         cmd = 'mkdir '+outfolder
@@ -47,6 +50,7 @@ def rename_file(infolder, outfolder, sample_list):
                 pass
             cmd = 'touch '+outname
             print(cmd)
+            print(type(outname)
             subprocess.call(cmd, shell=True)
             cmd = 'cp '+bfile+' '+outname
             print(cmd)
