@@ -50,7 +50,7 @@ def rename_file(infolder, outfolder, sample_list):
                 pass
             cmd = 'touch '+outname
             print(cmd)
-            print(type(outname)
+            print(type(outname))
             subprocess.call(cmd, shell=True)
             cmd = 'cp '+bfile+' '+outname
             print(cmd)
