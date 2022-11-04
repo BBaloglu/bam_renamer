@@ -42,6 +42,8 @@ def rename_file(infolder, outfolder, sample_list):
             print(cmd)
             subprocess.call(cmd, shell=True)
             cmd = 'cp '+bfile+' '+outname
+            print(cmd)
+            #subprocess.call(cmd, shell=True)
 
 def main():
     parser = argparse.ArgumentParser(description='Script to rename bam files based on sample name', formatter_class=argparse.RawTextHelpFormatter)
