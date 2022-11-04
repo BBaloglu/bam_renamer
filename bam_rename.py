@@ -40,6 +40,7 @@ def rename_file(infolder, outfolder, sample_list):
         for bfile in blist:
             outname = outfolder+'/'+f1+'_'+bfile.split('/')[-1]
             ## need to add a few other conditions to address any kind of file naming
+            # if the filename contains spaces, replace with underscore
             if outname.find(" ")!=-1:
                 outname = outname.replace(' ','_')
             else:
