@@ -1,5 +1,7 @@
 # Bilgenur Baloglu
-# rename names bam files
+
+"""renames bam, bai, and sam file names from a selected run using sample names
+moves them to the mounted hard drive"""
 
 import glob
 import json
